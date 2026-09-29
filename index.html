@@ -16,7 +16,7 @@
   <link rel="apple-touch-icon" href="img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -33,8 +33,8 @@
       <a href="#faq">Preguntas</a>
       <a href="#contacto">Contacto</a>
     </nav>
-    <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
-      Modo oscuro
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Modo oscuro">
+      <span aria-hidden="true">◐</span>
     </button>
   </header>
 
@@ -42,17 +42,35 @@
     <section id="hero" class="hero" aria-labelledby="hero-title">
       <div class="hero-text">
         <p class="eyebrow">Energía · Enfoque · Progreso</p>
-        <h1 id="hero-title">Tu progreso, en movimiento</h1>
-        <p>Registra lo que comes, cómo te mueves y cuánto levantas. MOVE junta todo en un solo lugar y te ayuda a entenderlo, sin juicios.</p>
-        <a href="#contacto" class="btn">Quiero probar MOVE</a>
+        <h1 id="hero-title">Tu progreso,<br> en <span class="gradient-text">movimiento</span></h1>
+        <p class="lead">Registra lo que comes, cómo te mueves y cuánto levantas. MOVE junta todo en un solo lugar y te ayuda a entenderlo, sin juicios.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn">Quiero probar MOVE</a>
+          <a href="#caracteristicas" class="btn-round" aria-label="Ver características">
+            <span aria-hidden="true">↘</span>
+          </a>
+        </div>
+        <ul class="tags" aria-label="Qué registra MOVE">
+          <li>Nutrición</li>
+          <li>Actividad</li>
+          <li>Fuerza</li>
+          <li>Progreso</li>
+        </ul>
       </div>
-      <img src="img/hero.jpg"
-           alt="Mujer con leggings naranjas haciendo abdominales sobre una colchoneta junto a un ventanal"
-           width="1200" height="800">
+      <div class="hero-media">
+        <img src="img/hero.jpg"
+             alt="Mujer con leggings naranjas haciendo abdominales sobre una colchoneta junto a un ventanal"
+             width="1200" height="800">
+        <p class="hero-chip">
+          <img src="img/isotipo-m.svg" alt="" width="28" height="17">
+          <span><strong>Récord personal</strong> Abdominales · 4 de 5 series</span>
+        </p>
+      </div>
     </section>
 
     <section id="caracteristicas" aria-labelledby="caracteristicas-title">
-      <h2 id="caracteristicas-title">Características</h2>
+      <p class="eyebrow">01 · Características</p>
+      <h2 id="caracteristicas-title">Todo lo que te mueve, en una sola app</h2>
       <div class="cards">
         <article class="card">
           <img src="img/icono-1.svg" alt="" width="48" height="48">
@@ -73,7 +91,8 @@
     </section>
 
     <section id="galeria" aria-labelledby="galeria-title">
-      <h2 id="galeria-title">Galería</h2>
+      <p class="eyebrow">02 · Galería</p>
+      <h2 id="galeria-title">Comer, moverte, recuperarte</h2>
       <div class="galeria">
         <figure>
           <img src="img/g1.jpg" alt="Bowl con palta, tomates cherry, garbanzos y camote visto desde arriba" width="800" height="600">
@@ -94,8 +113,13 @@
       </div>
     </section>
 
+    <div class="statement">
+      <p>Registra, entiende y avanza. <span class="gradient-text">Sin culpa.</span></p>
+    </div>
+
     <section id="testimonios" aria-labelledby="testimonios-title">
-      <h2 id="testimonios-title">Testimonios</h2>
+      <p class="eyebrow">03 · Testimonios</p>
+      <h2 id="testimonios-title">Lo que dicen quienes ya se mueven</h2>
       <div class="testimonios">
         <figure class="testimonio">
           <blockquote>
@@ -120,26 +144,32 @@
 
     <section id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title">Preguntas frecuentes</h2>
-      <details>
-        <summary>¿Necesito instalar algo?</summary>
-        <p>No. MOVE funciona en el navegador de tu celular o computadora, y puedes agregarla a tu pantalla de inicio como una app.</p>
-      </details>
-      <details>
-        <summary>¿Funciona sin internet?</summary>
-        <p>Sí. Puedes registrar tus comidas y entrenamientos sin conexión; se sincronizan cuando vuelves a estar en línea.</p>
-      </details>
-      <details>
-        <summary>¿MOVE me va a decir que "fallé" un día?</summary>
-        <p>Nunca. MOVE registra y te da contexto: no usa puntajes, rachas obligatorias ni lenguaje de culpa.</p>
-      </details>
-      <details>
-        <summary>¿Mis datos son privados?</summary>
-        <p>Sí. Solo tú puedes ver tus registros, y puedes exportarlos o borrar tu cuenta cuando quieras.</p>
-      </details>
+      <div class="faq-list">
+        <details>
+          <summary>¿Necesito instalar algo?</summary>
+          <p>No. MOVE funciona en el navegador de tu celular o computadora, y puedes agregarla a tu pantalla de inicio como una app.</p>
+        </details>
+        <details>
+          <summary>¿Funciona sin internet?</summary>
+          <p>Sí. Puedes registrar tus comidas y entrenamientos sin conexión; se sincronizan cuando vuelves a estar en línea.</p>
+        </details>
+        <details>
+          <summary>¿MOVE me va a decir que "fallé" un día?</summary>
+          <p>Nunca. MOVE registra y te da contexto: no usa puntajes, rachas obligatorias ni lenguaje de culpa.</p>
+        </details>
+        <details>
+          <summary>¿Mis datos son privados?</summary>
+          <p>Sí. Solo tú puedes ver tus registros, y puedes exportarlos o borrar tu cuenta cuando quieras.</p>
+        </details>
+      </div>
     </section>
 
     <section id="contacto" aria-labelledby="contacto-title">
-      <h2 id="contacto-title">Contáctanos</h2>
+      <div class="contact-intro">
+        <p class="eyebrow">Hablemos</p>
+        <h2 id="contacto-title">Contáctanos</h2>
+        <p>¿Tienes dudas, una sugerencia o quieres probar MOVE antes que nadie? Escríbenos.</p>
+      </div>
       <form class="contact-form" action="#" method="post">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" autocomplete="name" required>

@@ -6,7 +6,6 @@ function applyTheme(theme) {
   root.dataset.theme = theme;
   const isDark = theme === 'dark';
   toggle.setAttribute('aria-pressed', String(isDark));
-  toggle.textContent = isDark ? 'Modo claro' : 'Modo oscuro';
 }
 
 let saved = null;
