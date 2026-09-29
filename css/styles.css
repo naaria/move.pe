@@ -1,24 +1,29 @@
-/* Variables de color (Logro 1: modo oscuro) */
+/* Paleta de marca MOVE + variables de color (Logro 1: modo oscuro) */
 :root {
-  --bg-color: #f7faf7;
+  --orange: #ff7a2e;
+  --lavender: #a78bfa;
+  --cream: #f6e7d9;
+  --bg-color: #f7f6f3;
   --surface-color: #ffffff;
-  --text-color: #1b2a22;
-  --muted-color: #4a5a51;
-  --accent-color: #1f7a4d;
-  --accent-text: #ffffff;
-  --border-color: #d5e2d9;
-  --focus-color: #c2410c;
+  --text-color: #171717;
+  --muted-color: #5c5c5c;
+  --link-color: #b8490c;
+  --accent-color: var(--orange);
+  --accent-text: #171717;
+  --border-color: #e8e6e2;
+  --focus-color: #6d28d9;
+  --logo-filter: none;
 }
 
 :root[data-theme="dark"] {
-  --bg-color: #111a15;
-  --surface-color: #1a261f;
-  --text-color: #e8f1eb;
-  --muted-color: #b3c4ba;
-  --accent-color: #5fd39a;
-  --accent-text: #0b1a12;
-  --border-color: #2e4337;
-  --focus-color: #fbbf24;
+  --bg-color: #171717;
+  --surface-color: #222222;
+  --text-color: #f7f6f3;
+  --muted-color: #b5b5b5;
+  --link-color: #ff9a5c;
+  --border-color: #3a3a3a;
+  --focus-color: #c4b5fd;
+  --logo-filter: invert(1);
 }
 
 * {
@@ -27,7 +32,7 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   line-height: 1.6;
   background: var(--bg-color);
   color: var(--text-color);
@@ -40,7 +45,7 @@ img {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--link-color);
 }
 
 /* Foco visible para navegación con teclado */
@@ -77,12 +82,11 @@ a {
 
 .logo {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--text-color);
-  text-decoration: none;
+}
+
+.logo img,
+.footer-mark {
+  filter: var(--logo-filter);
 }
 
 .site-header nav ul {
@@ -103,7 +107,7 @@ a {
 
 /* Logro 2: resaltar enlaces al pasar el mouse */
 .site-header nav a:hover {
-  color: var(--accent-color);
+  color: var(--link-color);
   border-bottom-color: var(--accent-color);
 }
 
@@ -129,26 +133,46 @@ main section {
   padding: 3rem 1.5rem;
 }
 
-.hero {
+/* El degradado naranja-lavanda de la marca solo se usa en el hero */
+main .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 2rem;
+  width: calc(100% - 2rem);
+  margin: 2rem auto 0;
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  background: var(--cream) url("../img/gradient-wide.webp") center / cover no-repeat;
+  color: #171717;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
   margin: 0;
-  color: var(--accent-color);
 }
 
 .hero p {
-  font-size: 1.2rem;
-  color: var(--muted-color);
+  font-size: 1.15rem;
+}
+
+.hero .btn {
+  background: #171717;
+  color: #ffffff;
 }
 
 .hero img {
-  border-radius: 1rem;
+  border-radius: 20px;
 }
 
 /* Logro 2: transiciones en botones */
@@ -158,7 +182,7 @@ main section {
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 999px;
   background: var(--accent-color);
   color: var(--accent-text);
   text-decoration: none;
@@ -187,7 +211,12 @@ main section {
   padding: 1.5rem;
   background: var(--surface-color);
   border: 1px solid var(--border-color);
-  border-radius: 1rem;
+  border-top: 4px solid var(--accent-color);
+  border-radius: 20px;
+}
+
+.features li:nth-child(even) {
+  border-top-color: var(--lavender);
 }
 
 .features h3 {
@@ -245,6 +274,11 @@ summary {
   border-top: 1px solid var(--border-color);
 }
 
+.footer-mark {
+  width: 48px;
+  height: auto;
+}
+
 .social {
   display: flex;
   justify-content: center;
@@ -272,7 +306,7 @@ summary {
 }
 
 @media (max-width: 700px) {
-  .hero {
+  main .hero {
     grid-template-columns: 1fr;
   }
 }

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <!--
-  Producto/servicio: Riega — app que te recuerda cuándo regar cada una de tus plantas.
-  A quién va dirigido (público objetivo): personas que viven en departamento y tienen plantas
-    en casa, pero olvidan regarlas o no saben cuánta agua necesita cada especie.
-  Propuesta de valor en 1 línea: Tus plantas vivas y felices con recordatorios de riego
-    personalizados para cada especie.
+  Producto/servicio: MOVE — app personal de nutrición, actividad, fuerza y progreso corporal (web + PWA).
+  A quién va dirigido (público objetivo): personas adultas que entrenan o quieren cuidar su
+    alimentación y prefieren entender sus datos antes que seguir dietas rígidas.
+  Propuesta de valor en 1 línea: Todo tu progreso —comida, movimiento y fuerza— en un solo lugar,
+    explicado sin juicios.
 -->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Riega: la app que te recuerda cuándo y cuánto regar cada una de tus plantas.">
-  <title>Riega — Recordatorios de riego para tus plantas</title>
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <meta name="description" content="MOVE: registra tu alimentación, actividad y fuerza en un solo lugar y entiende tu progreso sin juicios.">
+  <title>MOVE — Nutrición, actividad y fuerza en un solo lugar</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,9 +24,8 @@
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
   <header class="site-header">
-    <a href="#hero" class="logo" aria-label="Riega, ir al inicio">
-      <img src="img/favicon.svg" alt="" width="32" height="32">
-      <span>Riega</span>
+    <a href="#hero" class="logo">
+      <img src="img/wordmark.svg" alt="MOVE, ir al inicio" width="104" height="24">
     </a>
     <nav aria-label="Navegación principal">
       <ul>
@@ -40,29 +43,34 @@
   <main id="contenido">
     <section id="hero" class="hero" aria-labelledby="hero-title">
       <div class="hero-text">
-        <h1 id="hero-title">Riega</h1>
-        <p>Tus plantas vivas y felices con recordatorios de riego personalizados para cada especie.</p>
-        <a href="#contacto" class="btn">Quiero probar Riega</a>
+        <p class="eyebrow">Energía · Enfoque · Progreso</p>
+        <h1 id="hero-title">Tu progreso, en movimiento</h1>
+        <p>Registra lo que comes, cómo te mueves y cuánto levantas. MOVE junta todo en un solo lugar y te ayuda a entenderlo, sin juicios.</p>
+        <a href="#contacto" class="btn">Quiero probar MOVE</a>
       </div>
       <img src="img/hero.jpg"
-           alt="Varias plantas de interior en macetas junto a una ventana luminosa"
-           width="1200" height="799">
+           alt="Mujer con leggings naranjas haciendo abdominales sobre una colchoneta junto a un ventanal"
+           width="1200" height="800">
     </section>
 
     <section id="producto" aria-labelledby="producto-title">
       <h2 id="producto-title">Características</h2>
       <ul class="features">
         <li>
-          <h3>Recordatorios inteligentes</h3>
-          <p>Te avisamos el día exacto en que cada planta necesita agua, según su especie y la estación.</p>
+          <h3>Nutrición completa</h3>
+          <p>Calorías, macros y micronutrientes. Busca alimentos, escanea códigos de barras, guarda recetas y planifica tus comidas.</p>
         </li>
         <li>
-          <h3>Catálogo de más de 300 especies</h3>
-          <p>Busca tu planta por nombre o foto y recibe su guía de luz, riego y abono.</p>
+          <h3>Actividad diaria</h3>
+          <p>Pasos, caminatas y running en el mismo lugar que tu alimentación, para ver cómo se relacionan.</p>
         </li>
         <li>
-          <h3>Modo vacaciones</h3>
-          <p>Comparte tu jardín con un amigo para que reciba los recordatorios mientras viajas.</p>
+          <h3>Entrenamiento de fuerza</h3>
+          <p>Crea rutinas, registra series, kilos y RIR, y detecta tus récords personales automáticamente.</p>
+        </li>
+        <li>
+          <h3>Progreso explicado</h3>
+          <p>Peso, medidas y tendencias con objetivos que se ajustan a tus datos reales. Estimaciones claras, nunca puntajes.</p>
         </li>
       </ul>
     </section>
@@ -70,16 +78,20 @@
     <section id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title">Preguntas frecuentes</h2>
       <details>
-        <summary>¿Riega es gratis?</summary>
-        <p>Sí. Puedes registrar hasta 10 plantas gratis. El plan Premium desbloquea plantas ilimitadas y el modo vacaciones.</p>
+        <summary>¿Necesito instalar algo?</summary>
+        <p>No. MOVE funciona en el navegador de tu celular o computadora, y puedes agregarla a tu pantalla de inicio como una app.</p>
       </details>
       <details>
-        <summary>¿Funciona en iPhone y Android?</summary>
-        <p>Sí, Riega está disponible para iOS y Android, y también puedes usarla desde el navegador.</p>
+        <summary>¿Funciona sin internet?</summary>
+        <p>Sí. Puedes registrar tus comidas y entrenamientos sin conexión; se sincronizan cuando vuelves a estar en línea.</p>
       </details>
       <details>
-        <summary>¿Qué pasa si mi planta no está en el catálogo?</summary>
-        <p>Puedes crear una planta personalizada indicando cada cuántos días quieres regarla.</p>
+        <summary>¿MOVE me va a decir que "fallé" un día?</summary>
+        <p>Nunca. MOVE registra y te da contexto: no usa puntajes, rachas obligatorias ni lenguaje de culpa.</p>
+      </details>
+      <details>
+        <summary>¿Mis datos son privados?</summary>
+        <p>Sí. Solo tú puedes ver tus registros, y puedes exportarlos o borrar tu cuenta cuando quieras.</p>
       </details>
     </section>
 
@@ -108,7 +120,8 @@
   </main>
 
   <footer class="site-footer">
-    <p>Contacto: <a href="mailto:hola@riega.app">hola@riega.app</a></p>
+    <img src="img/isotipo-m.svg" alt="" class="footer-mark" width="48" height="29">
+    <p>Contacto: <a href="mailto:hola@moveapp.com">hola@moveapp.com</a></p>
     <ul class="social" aria-label="Redes sociales">
       <li>
         <a href="#" aria-label="Síguenos en Facebook">
@@ -131,7 +144,7 @@
         </a>
       </li>
     </ul>
-    <p><small>&copy; 2026 Riega. Proyecto educativo.</small></p>
+    <p><small>&copy; 2026 MOVE. Movement builds what's next.</small></p>
   </footer>
 
   <script src="js/theme.js"></script>

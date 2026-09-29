@@ -1,9 +1,9 @@
-# Riega — Landing Page
+# MOVE — Landing Page
 
-Landing page de **Riega**, una app (ficticia) que te recuerda cuándo y cuánto regar cada una de tus plantas.
+Landing page de **MOVE**, una app personal de nutrición, actividad, fuerza y progreso corporal (web + PWA).
 
-- **Público objetivo:** personas que viven en departamento, tienen plantas en casa y olvidan regarlas.
-- **Propuesta de valor:** tus plantas vivas y felices con recordatorios de riego personalizados para cada especie.
+- **Público objetivo:** personas adultas que entrenan o quieren cuidar su alimentación y prefieren entender sus datos antes que seguir dietas rígidas.
+- **Propuesta de valor:** todo tu progreso —comida, movimiento y fuerza— en un solo lugar, explicado sin juicios.
 
 ## Laboratorio 01 — HTML5 semántico, accesibilidad y formularios
 
@@ -15,6 +15,11 @@ Landing page de **Riega**, una app (ficticia) que te recuerda cuándo y cuánto 
 - Retos: favicon, sección de Preguntas Frecuentes, 4.º icono (TikTok), campo `select`.
 - Logros extra: modo oscuro con variables CSS y microinteracciones en botones y enlaces.
 - Enlace "Saltar al contenido" y foco visible para navegación con teclado.
+
+## Identidad visual
+
+Paleta de marca: naranja `#FF7A2E`, lavanda `#A78BFA`, crema `#F6E7D9`, negro `#171717`, blanco `#FFFFFF`.
+Tipografía: Manrope. El degradado naranja-lavanda se reserva para el hero.
 
 ## Estructura
 
@@ -29,5 +34,6 @@ product-landing-page/
 
 ## Créditos
 
-- Foto del hero: [Unsplash](https://unsplash.com/) (foto `photo-1485955900006-10f4d324d411`) (licencia Unsplash).
+- Foto del hero: [Unsplash](https://unsplash.com/) (foto `photo-1571019613454-1cb2f99b2d8b`, licencia Unsplash).
 - Iconos de redes: [Simple Icons](https://simpleicons.org/) (CC0).
+- Logo, isotipo y degradado: marca MOVE.
