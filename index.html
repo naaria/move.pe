@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+  Producto/servicio: Riega — app que te recuerda cuándo regar cada una de tus plantas.
+  A quién va dirigido (público objetivo): personas que viven en departamento y tienen plantas
+    en casa, pero olvidan regarlas o no saben cuánta agua necesita cada especie.
+  Propuesta de valor en 1 línea: Tus plantas vivas y felices con recordatorios de riego
+    personalizados para cada especie.
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Riega: la app que te recuerda cuándo y cuánto regar cada una de tus plantas.">
+  <title>Riega — Recordatorios de riego para tus plantas</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <a href="#hero" class="logo" aria-label="Riega, ir al inicio">
+      <img src="img/favicon.svg" alt="" width="32" height="32">
+      <span>Riega</span>
+    </a>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#hero">Inicio</a></li>
+        <li><a href="#producto">Producto</a></li>
+        <li><a href="#faq">Preguntas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
+      Modo oscuro
+    </button>
+  </header>
+
+  <main id="contenido">
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <h1 id="hero-title">Riega</h1>
+        <p>Tus plantas vivas y felices con recordatorios de riego personalizados para cada especie.</p>
+        <a href="#contacto" class="btn">Quiero probar Riega</a>
+      </div>
+      <img src="img/hero.jpg"
+           alt="Varias plantas de interior en macetas junto a una ventana luminosa"
+           width="1200" height="799">
+    </section>
+
+    <section id="producto" aria-labelledby="producto-title">
+      <h2 id="producto-title">Características</h2>
+      <ul class="features">
+        <li>
+          <h3>Recordatorios inteligentes</h3>
+          <p>Te avisamos el día exacto en que cada planta necesita agua, según su especie y la estación.</p>
+        </li>
+        <li>
+          <h3>Catálogo de más de 300 especies</h3>
+          <p>Busca tu planta por nombre o foto y recibe su guía de luz, riego y abono.</p>
+        </li>
+        <li>
+          <h3>Modo vacaciones</h3>
+          <p>Comparte tu jardín con un amigo para que reciba los recordatorios mientras viajas.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Riega es gratis?</summary>
+        <p>Sí. Puedes registrar hasta 10 plantas gratis. El plan Premium desbloquea plantas ilimitadas y el modo vacaciones.</p>
+      </details>
+      <details>
+        <summary>¿Funciona en iPhone y Android?</summary>
+        <p>Sí, Riega está disponible para iOS y Android, y también puedes usarla desde el navegador.</p>
+      </details>
+      <details>
+        <summary>¿Qué pasa si mi planta no está en el catálogo?</summary>
+        <p>Puedes crear una planta personalizada indicando cada cuántos días quieres regarla.</p>
+      </details>
+    </section>
+
+    <section id="contacto" aria-labelledby="contacto-title">
+      <h2 id="contacto-title">Contáctanos</h2>
+      <form class="contact-form" action="#" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+
+        <label for="motivo">Motivo del contacto</label>
+        <select id="motivo" name="motivo">
+          <option value="consulta">Consulta</option>
+          <option value="reclamo">Reclamo</option>
+          <option value="sugerencia">Sugerencia</option>
+        </select>
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí un mensaje..."></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Contacto: <a href="mailto:hola@riega.app">hola@riega.app</a></p>
+    <ul class="social" aria-label="Redes sociales">
+      <li>
+        <a href="#" aria-label="Síguenos en Facebook">
+          <img src="img/facebook.svg" alt="" width="32" height="32">
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="Síguenos en Instagram">
+          <img src="img/instagram.svg" alt="" width="32" height="32">
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="Síguenos en LinkedIn">
+          <img src="img/linkedin.svg" alt="" width="32" height="32">
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-label="Síguenos en TikTok">
+          <img src="img/tiktok.svg" alt="" width="32" height="32">
+        </a>
+      </li>
+    </ul>
+    <p><small>&copy; 2026 Riega. Proyecto educativo.</small></p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+</body>
+</html>
