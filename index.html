@@ -19,19 +19,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="site-layout">
 
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
   <header class="site-header">
     <nav aria-label="Navegación principal">
-      <a href="#hero" class="logo">
+      <a href="index.html" class="logo">
         <img src="img/wordmark.svg" alt="MOVE, ir al inicio" width="104" height="24">
       </a>
-      <a href="#hero">Inicio</a>
-      <a href="#caracteristicas">Producto</a>
-      <a href="#faq">Preguntas</a>
-      <a href="#contacto">Contacto</a>
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="precios.html">Precios</a>
+      <a href="testimonios.html">Testimonios</a>
+      <a href="faq.html" id="icono-faq" aria-label="Preguntas frecuentes">
+        <img src="img/faq.svg" alt="" width="24" height="24">
+      </a>
     </nav>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Modo oscuro">
       <span aria-hidden="true">◐</span>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elige tu plan de MOVE y completa tu compra.">
+  <title>Compra — MOVE</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="site-layout">
+
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <nav aria-label="Navegación principal">
+      <a href="index.html" class="logo">
+        <img src="img/wordmark.svg" alt="MOVE, ir al inicio" width="104" height="24">
+      </a>
+      <a href="index.html">Inicio</a>
+      <a href="precios.html">Precios</a>
+      <a href="testimonios.html">Testimonios</a>
+      <a href="faq.html" id="icono-faq" aria-label="Preguntas frecuentes">
+        <img src="img/faq.svg" alt="" width="24" height="24">
+      </a>
+    </nav>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Modo oscuro">
+      <span aria-hidden="true">◐</span>
+    </button>
+  </header>
+
+  <main id="contenido" class="compra">
+    <div class="compra-intro page-intro">
+      <p class="eyebrow">Compra</p>
+      <h1>Completa tu compra</h1>
+      <p>Elige tu plan, deja tus datos y empieza hoy.</p>
+    </div>
+
+    <form class="compra-form" action="#" method="post" aria-labelledby="form-title">
+      <h2 id="form-title">Tus datos</h2>
+      <fieldset>
+        <legend>Plan</legend>
+          <label class="opcion-plan">
+            <input type="radio" name="plan" value="free">
+            <span><strong>Free</strong> S/ 0 para siempre</span>
+          </label>
+          <label class="opcion-plan">
+            <input type="radio" name="plan" value="plus">
+            <span><strong>Plus</strong> S/ 15 al mes</span>
+          </label>
+          <label class="opcion-plan">
+            <input type="radio" name="plan" value="pro" checked>
+            <span><strong>Pro</strong> S/ 25 al mes</span>
+          </label>
+          <label class="opcion-plan">
+            <input type="radio" name="plan" value="equipos">
+            <span><strong>Equipos</strong> S/ 99 al mes</span>
+          </label>
+      </fieldset>
+
+      <label for="compra-nombre">Nombre completo</label>
+      <input type="text" id="compra-nombre" name="nombre" autocomplete="name" required>
+
+      <label for="compra-email">Correo electrónico</label>
+      <input type="email" id="compra-email" name="email" autocomplete="email" required>
+
+      <label for="compra-pago">Método de pago</label>
+      <select id="compra-pago" name="pago">
+        <option value="tarjeta">Tarjeta de crédito o débito</option>
+        <option value="yape">Yape</option>
+        <option value="plin">Plin</option>
+      </select>
+
+      <label class="check">
+        <input type="checkbox" name="terminos" required>
+        <span>Acepto los <a href="#">Términos y Condiciones</a></span>
+      </label>
+
+      <button type="submit" class="btn">Confirmar compra</button>
+    </form>
+
+    <aside class="resumen" aria-labelledby="resumen-title">
+      <h2 id="resumen-title">Resumen</h2>
+      <p class="resumen-plan">Plan <strong id="resumen-nombre">Pro</strong></p>
+      <p class="resumen-precio"><span id="resumen-precio">S/ 25</span> <span id="resumen-periodo">al mes</span></p>
+      <ul id="resumen-lista">
+        <li>Todo lo del Plus</li>
+        <li>Objetivos que se ajustan a tus datos</li>
+        <li>Análisis de progreso y récords</li>
+        <li>Exportar tus datos</li>
+      </ul>
+      <p class="resumen-nota">Página de demostración: no se realiza ningún cobro.</p>
+      <a id="resumen-wa" href="https://wa.me/51999999999?text=Hola,%20quiero%20el%20plan%20Pro%20de%20MOVE" class="plan-alt" target="_blank" rel="noopener">¿Dudas? Escríbenos por WhatsApp</a>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-contact">
+        <img src="img/isotipo-m.svg" alt="" class="footer-mark" width="48" height="29">
+        <p>Contacto: <a href="mailto:hola@moveapp.com">hola@moveapp.com</a></p>
+      </div>
+      <ul class="social" aria-label="Redes sociales">
+        <li>
+          <a href="#" aria-label="Síguenos en Facebook">
+            <img src="img/facebook.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Síguenos en Instagram">
+            <img src="img/instagram.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Síguenos en LinkedIn">
+            <img src="img/linkedin.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Síguenos en TikTok">
+            <img src="img/tiktok.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-legal">
+      <p><small>&copy; 2026 MOVE. Movement builds what's next.</small></p>
+      <a href="#">Términos y Condiciones</a>
+      <a href="#">Política de Privacidad</a>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/compra.js"></script>
+</body>
+</html>

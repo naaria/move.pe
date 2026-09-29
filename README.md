@@ -32,6 +32,23 @@ Landing page de **MOVE**, una app personal de nutrición, actividad, fuerza y pr
 | 640–1023px | apilado | 2 columnas | 2 columnas | columna |
 | ≥ 1024px | lado a lado | 3 columnas | 4 columnas | fila |
 
+## Laboratorio 03 — CSS Grid
+
+- Nav con rutas relativas (`index.html`, `precios.html`, `testimonios.html`) e ícono SVG para `faq.html` con `aria-label`.
+- Layout Grid compartido (`.site-layout` con `grid-template-areas: "header" "main" "footer"`) en `index.html`, `precios.html`, `testimonios.html` y `compra.html`.
+- `precios.html`: grid básico mobile-first (1 → `1fr 1fr` → `repeat(4, 1fr)`), plan Pro destacado con badge "Más popular" y sección de logos con `repeat(auto-fit, minmax(150px, 1fr))`.
+- `faq.html`: `grid-template-areas` apilado en móvil, T invertida con sidebar desde 640px y sidebar a la derecha desde 1024px (reto: orden visual independiente del DOM).
+- `testimonios.html`: muro de testimonios con `grid-auto-flow: dense`, `grid-column: span 2` y `grid-row: span 2`.
+- `compra.html`: checkout con `grid-template-areas` (resumen arriba en móvil, formulario + resumen lado a lado en escritorio). Recibe el plan por URL (`compra.html?plan=pro`).
+- Logro: enlaces de WhatsApp con mensaje predeterminado por plan.
+
+| Página | Móvil (< 640px) | Tablet (640–1023px) | Escritorio (≥ 1024px) |
+| --- | --- | --- | --- |
+| Precios | 1 columna | 2 columnas | 4 columnas |
+| FAQ | apilado | sidebar izquierda + main | main + sidebar derecha |
+| Testimonios | 1 columna | 2 columnas | 3 columnas |
+| Compra | apilado | apilado | formulario + resumen |
+
 ## Identidad visual
 
 Paleta de marca: naranja `#FF7A2E`, lavanda `#A78BFA`, crema `#F6E7D9`, negro `#171717`, blanco `#FFFFFF`.
@@ -42,8 +59,13 @@ Tipografía: Manrope. El degradado naranja-lavanda se reserva para el hero.
 ```
 product-landing-page/
 ├── index.html
+├── precios.html
+├── faq.html
+├── testimonios.html
+├── compra.html
 ├── css/styles.css
 ├── js/theme.js
+├── js/compra.js
 ├── img/
 └── README.md
 ```
@@ -53,5 +75,5 @@ product-landing-page/
 - Foto del hero: [Unsplash](https://unsplash.com/) (foto `photo-1571019613454-1cb2f99b2d8b`, licencia Unsplash).
 - Fotos de la galería: [Unsplash](https://unsplash.com/) (licencia Unsplash).
 - Iconos de redes: [Simple Icons](https://simpleicons.org/) (CC0).
-- Iconos de características: [Lucide](https://lucide.dev/) (ISC).
+- Iconos de características y FAQ: [Lucide](https://lucide.dev/) (ISC).
 - Logo, isotipo y degradado: marca MOVE.
