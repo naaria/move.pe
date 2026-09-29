@@ -1,4 +1,11 @@
-/* Paleta de marca MOVE + variables de color (Logro 1: modo oscuro) */
+/* ===== NORMALIZACIÓN ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== VARIABLES: paleta MOVE + modo oscuro ===== */
 :root {
   --orange: #ff7a2e;
   --lavender: #a78bfa;
@@ -26,14 +33,10 @@
   --logo-filter: invert(1);
 }
 
-* {
-  box-sizing: border-box;
-}
-
+/* ===== BASE (móvil) ===== */
 body {
-  margin: 0;
-  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  line-height: 1.6;
+  font-family: "Manrope", system-ui, sans-serif;
+  line-height: 1.5;
   background: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -48,6 +51,11 @@ a {
   color: var(--link-color);
 }
 
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 16px;
+}
+
 /* Foco visible para navegación con teclado */
 :focus-visible {
   outline: 3px solid var(--focus-color);
@@ -56,32 +64,63 @@ a {
 
 .skip-link {
   position: absolute;
-  left: 1rem;
-  top: -3rem;
-  padding: 0.5rem 1rem;
+  left: 16px;
+  top: -48px;
+  padding: 8px 16px;
   background: var(--accent-color);
   color: var(--accent-text);
   z-index: 10;
 }
 
 .skip-link:focus {
-  top: 1rem;
+  top: 16px;
 }
 
-/* Header */
+main section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+/* ===== HEADER + NAV ===== */
 .site-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
+  gap: 8px 16px;
+  padding: 0 16px;
   background: var(--surface-color);
   border-bottom: 1px solid var(--border-color);
 }
 
-.logo {
+header nav {
   display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--link-color);
+  border-bottom-color: var(--accent-color);
+}
+
+/* El logo absorbe el espacio sobrante y empuja el menú a la derecha */
+header nav .logo {
+  flex-grow: 1;
+  display: flex;
+  border-bottom: none;
 }
 
 .logo img,
@@ -89,31 +128,10 @@ a {
   filter: var(--logo-filter);
 }
 
-.site-header nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.site-header nav a {
-  color: var(--text-color);
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-/* Logro 2: resaltar enlaces al pasar el mouse */
-.site-header nav a:hover {
-  color: var(--link-color);
-  border-bottom-color: var(--accent-color);
-}
-
 .theme-toggle {
   font: inherit;
-  padding: 0.4rem 0.9rem;
+  margin: 8px 0;
+  padding: 6px 14px;
   border: 1px solid var(--border-color);
   border-radius: 999px;
   background: transparent;
@@ -126,61 +144,58 @@ a {
   background: var(--border-color);
 }
 
-/* Secciones */
-main section {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-}
-
-/* El degradado naranja-lavanda de la marca solo se usa en el hero */
-main .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+/* ===== HERO (móvil: apilado) ===== */
+#hero {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  width: calc(100% - 2rem);
-  margin: 2rem auto 0;
-  padding: 3rem 2rem;
+  gap: 32px;
+  width: calc(100% - 32px);
+  margin: 16px auto 0;
+  padding: 32px 24px;
+  text-align: center;
   border-radius: 24px;
+  /* El degradado de marca solo se usa en el hero */
   background: var(--cream) url("../img/gradient-wide.webp") center / cover no-repeat;
   color: #171717;
 }
 
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
 .eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
-.hero h1 {
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
+#hero h1 {
+  font-size: clamp(2.25rem, 7vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
-  margin: 0;
 }
 
-.hero p {
-  font-size: 1.15rem;
+#hero p {
+  font-size: 1.1rem;
 }
 
-.hero .btn {
-  background: #171717;
-  color: #ffffff;
-}
-
-.hero img {
+#hero img {
+  max-width: 100%;
+  height: auto;
   border-radius: 20px;
 }
 
-/* Logro 2: transiciones en botones */
+/* ===== BOTONES (microinteracciones) ===== */
 .btn {
   display: inline-block;
   font: inherit;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  padding: 12px 24px;
   border: none;
   border-radius: 999px;
   background: var(--accent-color);
@@ -199,97 +214,218 @@ main .hero {
   transform: translateY(0);
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 0;
-  list-style: none;
+#hero .btn {
+  background: #171717;
+  color: #ffffff;
 }
 
-.features li {
-  padding: 1.5rem;
+/* ===== CARACTERÍSTICAS: grilla con flex-wrap + flex-basis + flex-grow ===== */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-basis: 280px;
+  flex-grow: 1;
+  padding: 24px;
   background: var(--surface-color);
   border: 1px solid var(--border-color);
   border-top: 4px solid var(--accent-color);
   border-radius: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.features li:nth-child(even) {
+.card:nth-child(odd) {
   border-top-color: var(--lavender);
 }
 
-.features h3 {
-  margin-top: 0;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* FAQ */
-details {
-  margin-bottom: 1rem;
-  padding: 1rem 1.25rem;
+.card img {
+  align-self: flex-start;
+}
+
+/* ===== GALERÍA (móvil: 1 columna) ===== */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.galeria figure {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+  width: 100%;
+  padding-bottom: 12px;
+  overflow: hidden;
   background: var(--surface-color);
   border: 1px solid var(--border-color);
-  border-radius: 0.75rem;
+  border-radius: 16px;
+}
+
+.galeria img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.galeria figure:hover img {
+  transform: scale(1.05);
+}
+
+.galeria figcaption {
+  padding: 0 12px;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+/* ===== TESTIMONIOS (móvil: columna) ===== */
+.testimonios {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.testimonio {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  flex-grow: 1;
+  padding: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--lavender);
+  border-radius: 20px;
+}
+
+.testimonio blockquote {
+  font-size: 1.05rem;
+}
+
+.testimonio figcaption {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--muted-color);
+}
+
+/* ===== PREGUNTAS FRECUENTES ===== */
+#faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+details {
+  padding: 16px 20px;
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
 }
 
 summary {
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
-/* Formulario */
-.contact-form {
+details p {
+  margin-top: 8px;
+}
+
+/* ===== FORMULARIO DE CONTACTO ===== */
+#contacto {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  max-width: 520px;
+  align-items: center;
+  padding: 32px;
 }
 
-.contact-form label {
-  margin-top: 0.75rem;
+#contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 480px;
+}
+
+#contacto label {
   font-weight: 600;
+  margin-top: 8px;
 }
 
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  font: inherit;
-  padding: 0.6rem 0.75rem;
+#contacto input,
+#contacto select,
+#contacto textarea {
+  padding: 10px 12px;
   border: 1px solid var(--muted-color);
-  border-radius: 0.5rem;
+  border-radius: 8px;
+  font: inherit;
   background: var(--surface-color);
   color: var(--text-color);
 }
 
-.contact-form button {
-  margin-top: 1.25rem;
-  align-self: flex-start;
+#contacto button {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 999px;
 }
 
-/* Footer */
-.site-footer {
-  padding: 2rem 1.5rem;
-  text-align: center;
+/* ===== FOOTER ===== */
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 32px;
   background: var(--surface-color);
   border-top: 1px solid var(--border-color);
 }
 
+.footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .footer-mark {
-  width: 48px;
+  width: 40px;
   height: auto;
+}
+
+footer a {
+  display: inline-flex;
+  align-items: center;
 }
 
 .social {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0;
+  gap: 12px;
   list-style: none;
 }
 
 .social a {
-  display: inline-flex;
-  padding: 0.5rem;
+  padding: 8px;
   border-radius: 50%;
   background: #ffffff;
   border: 1px solid var(--border-color);
@@ -305,9 +441,60 @@ summary {
   height: 24px;
 }
 
-@media (max-width: 700px) {
-  main .hero {
-    grid-template-columns: 1fr;
+/* Segunda fila del footer: enlaces legales */
+.footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.85rem;
+}
+
+.footer-legal p {
+  flex-grow: 1;
+  color: var(--muted-color);
+}
+
+/* ===== TABLET (640px en adelante) ===== */
+@media (min-width: 640px) {
+  .galeria figure {
+    width: 48%;   /* 2 imágenes por fila (el ~4% restante absorbe el gap) */
+  }
+}
+
+/* ===== ESCRITORIO (1024px en adelante) ===== */
+@media (min-width: 1024px) {
+  .site-header {
+    padding: 0 32px;
+  }
+
+  #hero {
+    flex-direction: row;       /* hero lado a lado */
+    text-align: left;
+    max-width: 1100px;
+    padding: 48px;
+  }
+
+  .hero-text {
+    align-items: flex-start;
+  }
+
+  #hero img {
+    max-width: 50%;            /* la imagen no ocupa todo el ancho */
+  }
+
+  .galeria figure {
+    width: 23%;                /* 4 imágenes por fila */
+  }
+
+  .testimonios {
+    flex-direction: row;       /* testimonios en fila */
+  }
+
+  .testimonio {
+    flex-basis: 280px;
   }
 }
 

@@ -24,16 +24,14 @@
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
   <header class="site-header">
-    <a href="#hero" class="logo">
-      <img src="img/wordmark.svg" alt="MOVE, ir al inicio" width="104" height="24">
-    </a>
     <nav aria-label="Navegación principal">
-      <ul>
-        <li><a href="#hero">Inicio</a></li>
-        <li><a href="#producto">Producto</a></li>
-        <li><a href="#faq">Preguntas</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+      <a href="#hero" class="logo">
+        <img src="img/wordmark.svg" alt="MOVE, ir al inicio" width="104" height="24">
+      </a>
+      <a href="#hero">Inicio</a>
+      <a href="#caracteristicas">Producto</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#contacto">Contacto</a>
     </nav>
     <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
       Modo oscuro
@@ -53,26 +51,71 @@
            width="1200" height="800">
     </section>
 
-    <section id="producto" aria-labelledby="producto-title">
-      <h2 id="producto-title">Características</h2>
-      <ul class="features">
-        <li>
+    <section id="caracteristicas" aria-labelledby="caracteristicas-title">
+      <h2 id="caracteristicas-title">Características</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="img/icono-1.svg" alt="" width="48" height="48">
           <h3>Nutrición completa</h3>
           <p>Calorías, macros y micronutrientes. Busca alimentos, escanea códigos de barras, guarda recetas y planifica tus comidas.</p>
-        </li>
-        <li>
-          <h3>Actividad diaria</h3>
-          <p>Pasos, caminatas y running en el mismo lugar que tu alimentación, para ver cómo se relacionan.</p>
-        </li>
-        <li>
-          <h3>Entrenamiento de fuerza</h3>
-          <p>Crea rutinas, registra series, kilos y RIR, y detecta tus récords personales automáticamente.</p>
-        </li>
-        <li>
+        </article>
+        <article class="card">
+          <img src="img/icono-2.svg" alt="" width="48" height="48">
+          <h3>Actividad y fuerza</h3>
+          <p>Pasos, caminatas y running junto a tus rutinas de fuerza: registra series, kilos y RIR, y detecta tus récords personales.</p>
+        </article>
+        <article class="card">
+          <img src="img/icono-3.svg" alt="" width="48" height="48">
           <h3>Progreso explicado</h3>
           <p>Peso, medidas y tendencias con objetivos que se ajustan a tus datos reales. Estimaciones claras, nunca puntajes.</p>
-        </li>
-      </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeria" aria-labelledby="galeria-title">
+      <h2 id="galeria-title">Galería</h2>
+      <div class="galeria">
+        <figure>
+          <img src="img/g1.jpg" alt="Bowl con palta, tomates cherry, garbanzos y camote visto desde arriba" width="800" height="600">
+          <figcaption>Registra lo que comes, con calorías y macros.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/g2.jpg" alt="Piernas con zapatillas naranjas subiendo escaleras de concreto" width="800" height="600">
+          <figcaption>Tus pasos y caminatas cuentan.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/g3.jpg" alt="Persona preparándose para levantar una barra con discos en el gimnasio" width="800" height="600">
+          <figcaption>Series, kilos y récords de fuerza.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/g4.jpg" alt="Silueta de una mujer estirando frente al mar al atardecer" width="800" height="600">
+          <figcaption>La recuperación también es progreso.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="testimonios" aria-labelledby="testimonios-title">
+      <h2 id="testimonios-title">Testimonios</h2>
+      <div class="testimonios">
+        <figure class="testimonio">
+          <blockquote>
+            <p>"Por fin entiendo por qué mi peso sube y baja. MOVE me muestra tendencias en lugar de hacerme sentir mal por un día."</p>
+          </blockquote>
+          <figcaption>Lucía, 29 años · entrena 3 veces por semana</figcaption>
+        </figure>
+        <figure class="testimonio">
+          <blockquote>
+            <p>"Registro mis series en el gimnasio sin señal y todo se sincroniza después. Ver mis récords me motiva."</p>
+          </blockquote>
+          <figcaption>Diego, 34 años · fuerza y running</figcaption>
+        </figure>
+        <figure class="testimonio">
+          <blockquote>
+            <p>"Escaneo el código de barras y listo. Planificar mis comidas de la semana me toma cinco minutos."</p>
+          </blockquote>
+          <figcaption>Valeria, 41 años · cuida su alimentación</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section id="faq" aria-labelledby="faq-title">
@@ -120,31 +163,39 @@
   </main>
 
   <footer class="site-footer">
-    <img src="img/isotipo-m.svg" alt="" class="footer-mark" width="48" height="29">
-    <p>Contacto: <a href="mailto:hola@moveapp.com">hola@moveapp.com</a></p>
-    <ul class="social" aria-label="Redes sociales">
-      <li>
-        <a href="#" aria-label="Síguenos en Facebook">
-          <img src="img/facebook.svg" alt="" width="32" height="32">
-        </a>
-      </li>
-      <li>
-        <a href="#" aria-label="Síguenos en Instagram">
-          <img src="img/instagram.svg" alt="" width="32" height="32">
-        </a>
-      </li>
-      <li>
-        <a href="#" aria-label="Síguenos en LinkedIn">
-          <img src="img/linkedin.svg" alt="" width="32" height="32">
-        </a>
-      </li>
-      <li>
-        <a href="#" aria-label="Síguenos en TikTok">
-          <img src="img/tiktok.svg" alt="" width="32" height="32">
-        </a>
-      </li>
-    </ul>
-    <p><small>&copy; 2026 MOVE. Movement builds what's next.</small></p>
+    <div class="footer-main">
+      <div class="footer-contact">
+        <img src="img/isotipo-m.svg" alt="" class="footer-mark" width="48" height="29">
+        <p>Contacto: <a href="mailto:hola@moveapp.com">hola@moveapp.com</a></p>
+      </div>
+      <ul class="social" aria-label="Redes sociales">
+        <li>
+          <a href="#" aria-label="Síguenos en Facebook">
+            <img src="img/facebook.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Síguenos en Instagram">
+            <img src="img/instagram.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Síguenos en LinkedIn">
+            <img src="img/linkedin.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="Síguenos en TikTok">
+            <img src="img/tiktok.svg" alt="" width="32" height="32">
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-legal">
+      <p><small>&copy; 2026 MOVE. Movement builds what's next.</small></p>
+      <a href="#">Términos y Condiciones</a>
+      <a href="#">Política de Privacidad</a>
+    </div>
   </footer>
 
   <script src="js/theme.js"></script>
