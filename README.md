@@ -5,6 +5,10 @@ Landing page de **MOVE**, una app personal de nutrición, actividad, fuerza y pr
 - **Público objetivo:** personas adultas que entrenan o quieren cuidar su alimentación y prefieren entender sus datos antes que seguir dietas rígidas.
 - **Propuesta de valor:** todo tu progreso —comida, movimiento y fuerza— en un solo lugar, explicado sin juicios.
 
+**Sitio publicado (GitHub Pages):** https://naaria.github.io/move.pe/
+
+Páginas: [Inicio](https://naaria.github.io/move.pe/) · [Precios](https://naaria.github.io/move.pe/precios.html) · [FAQ](https://naaria.github.io/move.pe/faq.html) · [Testimonios](https://naaria.github.io/move.pe/testimonios.html) · [Compra](https://naaria.github.io/move.pe/compra.html)
+
 ## Laboratorio 01 — HTML5 semántico, accesibilidad y formularios
 
 - Estructura semántica: `header`, `nav`, `main`, `section`, `footer`.
@@ -49,15 +53,91 @@ Landing page de **MOVE**, una app personal de nutrición, actividad, fuerza y pr
 | Testimonios | 1 columna | 2 columnas | 3 columnas |
 | Compra | apilado | apilado | formulario + resumen |
 
+## Laboratorio 04 — CSS Variables, formulario validado y flujo Git
+
+### Tokens CSS
+
+Definidos en `:root` al inicio de `css/styles.css`. El modo oscuro solo redefine los tokens de color en `:root[data-theme="dark"]`; las reglas no cambian.
+
+| Token | Valor | Dónde se usa |
+| --- | --- | --- |
+| `--color-primary` | `#171717` | Botones, íconos sociales, paneles oscuros (testimonios, resumen de compra) |
+| `--color-accent` | `#ff7a2e` | Naranja MOVE: tarjeta de actividad, badge "Más popular", borde del plan Pro, subrayado del nav |
+| `--color-accent-2` | `#a78bfa` | Lavanda MOVE: tarjeta de nutrición, botón "+" de FAQ, testimonio destacado |
+| `--color-cream` | `#f6e7d9` | Plan Pro, tarjeta de progreso, fondo de respaldo de los degradados |
+| `--color-text` | `#171717` | Texto base y enlaces del nav |
+| `--color-text-muted` | `#5c5c5c` | Textos secundarios, listas de planes, pies de foto |
+| `--color-link` | `#b8490c` | Links y hover del nav (naranja oscuro con contraste AA) |
+| `--color-bg` | `#fbfaf8` | Fondo del body |
+| `--color-bg-soft` | `#f3f1ed` | Footer, `faq-nav`, `details`, logos de clientes, inputs |
+| `--color-surface` | `#ffffff` | Tarjetas de planes, formularios, etiquetas |
+| `--color-border` | `#e8e6e2` | Bordes de planes, inputs, logos y divisores |
+| `--color-focus` | `#6d28d9` | Contorno de foco para navegación con teclado |
+| `--color-error` | `#c2255c` | Borde de campos inválidos (`:user-invalid`) |
+| `--color-on-primary` | `#ffffff` | Texto sobre botones y fondos oscuros |
+| `--font-text` | `"Manrope", system-ui, sans-serif` | `body` |
+| `--font-size` | `16px` | Tamaño base del `body` |
+| `--font-size-title` | `2.5rem` | Precios de los planes y total del resumen de compra |
+| `--font-size-display` | `clamp(2.75rem, 8vw, 4.75rem)` | Todos los `h1` (título destacado de cada página) |
+| `--space-sm` / `--space-md` / `--space-lg` / `--space-xl` | `8px` / `16px` / `32px` / `64px` | `gap`, `padding` y `margin` en todo el sitio |
+| `--radius-sm` | `14px` | Inputs, pies de foto de la galería |
+| `--radius` | `24px` | Tarjetas, planes, testimonios, `details`, logos |
+| `--radius-lg` | `32px` | Paneles grandes: hero, testimonios, contacto, CTA |
+| `--radius-pill` | `999px` | Botones, etiquetas, badge |
+| `--shadow-sm` | `0 1px 3px rgba(23,23,23,.08)` | Tarjetas y planes en reposo |
+| `--shadow-md` | `0 12px 28px rgba(23,23,23,.15)` | Hover de tarjetas, planes y botones |
+| `--shadow-lg` | `0 20px 48px rgba(23,23,23,.15)` | Formulario de contacto |
+
+Estética nueva: sombra + `transform: translateY(-4px)` al pasar el mouse sobre `.card` y `.plan`, hover de color en el nav, footer con fondo suave y un mismo token para todos los `h1`.
+
+### Validaciones del formulario de contacto (`index.html`)
+
+Validación 100 % nativa de HTML, sin JavaScript. Los campos inválidos se marcan en rojo con `:user-invalid` solo después de que la persona interactúa.
+
+| Campo | Atributos | Mensaje nativo del navegador (Chrome, español) |
+| --- | --- | --- |
+| Nombre | `required` `minlength="3"` | "Completa este campo" / "Aumenta la longitud del texto a 3 caracteres como mínimo" |
+| Correo electrónico | `type="email"` `required` | "Incluye un signo "@" en la dirección de correo electrónico" |
+| Teléfono | `type="tel"` `pattern="[0-9]{9}"` `required` | "Haz coincidir el formato solicitado: Ingresa 9 dígitos, por ejemplo 987654321" |
+| Motivo del contacto | `<select required>` con primera opción `value=""` | "Selecciona un elemento de la lista" |
+| Fecha preferida (reto) | `type="date"` | Calendario nativo; solo acepta fechas válidas |
+| Mensaje | `required` `minlength="10"` | "Completa este campo" / "Aumenta la longitud del texto a 10 caracteres como mínimo" |
+| Términos y condiciones | `<input type="checkbox" required>` | "Controla esta casilla si deseas continuar" |
+
+### Flujo Git
+
+1. Tokens y estética (Parte 1) commiteados en `main`.
+2. Rama `feature/form-validado` creada desde `main` con `git checkout -b`.
+3. Formulario validado y README commiteados en la rama.
+4. `git push -u origin feature/form-validado` → Pull Request en GitHub → merge → `git pull` en `main` local.
+
+### Historias de usuario adicionales
+
+**HU1 — Modo oscuro.** Como persona que revisa la app de noche, quiero cambiar a modo oscuro para no cansar la vista.
+- El botón ◐ del header alterna entre modo claro y oscuro en todas las páginas.
+- La preferencia se recuerda al volver a entrar.
+- Si no elegí nada, se respeta la preferencia del sistema operativo.
+- El botón anuncia su estado con `aria-pressed`.
+
+**HU2 — Compra con plan preseleccionado.** Como persona interesada en un plan, quiero que la página de compra ya tenga elegido el plan que vi, para no repetir el paso.
+- Cada botón de `precios.html` abre `compra.html?plan=<plan>`.
+- El plan llega marcado y el resumen muestra su nombre, precio y beneficios.
+- Si cambio de plan en el formulario, el resumen se actualiza al instante.
+
+**HU3 — Consulta por WhatsApp según el plan.** Como persona con dudas sobre un plan, quiero escribir por WhatsApp con un mensaje ya redactado para no tener que explicarlo.
+- Cada plan tiene un enlace de WhatsApp con el mensaje "Hola, quiero el plan <plan> de MOVE".
+- El enlace del resumen de compra cambia según el plan elegido.
+- Los enlaces se abren en una pestaña nueva.
+
 ## Identidad visual
 
-Paleta de marca: naranja `#FF7A2E`, lavanda `#A78BFA`, crema `#F6E7D9`, negro `#171717`, blanco `#FFFFFF`.
+Paleta de marca: naranja `#FF7A2E`, lavanda `#A78BFA`, crema `#F6E7D9`, negro `#171717`, blanco `#FFFFFF` (ver tokens arriba).
 Tipografía: Manrope. El degradado naranja-lavanda se reserva para el hero.
 
 ## Estructura
 
 ```
-product-landing-page/
+move.pe/
 ├── index.html
 ├── precios.html
 ├── faq.html
