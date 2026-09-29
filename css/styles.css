@@ -647,7 +647,7 @@ details p {
   margin-top: var(--space-sm);
 }
 
-#contacto input,
+#contacto input:not([type="checkbox"]),
 #contacto select,
 #contacto textarea {
   padding: 12px 14px;
@@ -656,6 +656,28 @@ details p {
   font: inherit;
   background: var(--color-bg-soft);
   color: var(--color-text);
+}
+
+/* Validación nativa: se marca en rojo solo después de que la persona interactúa */
+#contacto input:user-invalid,
+#contacto select:user-invalid,
+#contacto textarea:user-invalid {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 1px var(--color-error);
+}
+
+#contacto .check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  font-weight: 400;
+}
+
+#contacto input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent);
 }
 
 #contacto button {
