@@ -237,7 +237,7 @@ nav a[aria-current="page"] {
 }
 
 /* ===== BOTONES (microinteracciones) ===== */
-.btn {
+.btn-move {
   display: inline-block;
   font: inherit;
   font-weight: 600;
@@ -251,16 +251,16 @@ nav a[aria-current="page"] {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn:hover {
+.btn-move:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.btn:active {
+.btn-move:active {
   transform: translateY(0);
 }
 
-:root[data-theme="dark"] .btn {
+:root[data-theme="dark"] .btn-move {
   background: var(--color-on-dark);
   color: var(--color-primary);
 }
@@ -963,7 +963,7 @@ footer a {
   width: 100%;
 }
 
-.plan-actions .btn {
+.plan-actions .btn-move {
   width: 100%;
   text-align: center;
 }
@@ -986,12 +986,12 @@ footer a {
   color: var(--color-on-light-muted);
 }
 
-.planes .plan-pro .btn {
+.planes .plan-pro .btn-move {
   background: var(--color-primary);
   color: var(--color-on-primary);
 }
 
-.badge {
+.plan-badge {
   position: absolute;
   top: -14px;
   right: 20px;
