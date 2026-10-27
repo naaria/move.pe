@@ -9,6 +9,59 @@ Landing page de **MOVE**, una app personal de nutrición, actividad, fuerza y pr
 
 Páginas: [Inicio](https://naaria.github.io/move.pe/) · [Precios](https://naaria.github.io/move.pe/precios.html) · [FAQ](https://naaria.github.io/move.pe/faq.html) · [Testimonios](https://naaria.github.io/move.pe/testimonios.html) · [Compra](https://naaria.github.io/move.pe/compra.html)
 
+## Proyecto del Módulo 1 — Product Landing Page
+
+**Sitio:** https://naaria.github.io/move.pe/ · **Repositorio:** https://github.com/naaria/move.pe
+
+### Retos adicionales implementados
+
+Cada reto se desarrolló en su propia rama y se integró a `main` con un Pull Request:
+
+| Rama | Pull Request | Qué agrega |
+| --- | --- | --- |
+| `feature/form-validado` | [#1](https://github.com/naaria/move.pe/pull/1) | Tokens CSS + formulario de contacto con validación nativa (Lab 04) |
+| `bootstrap` | [#2](https://github.com/naaria/move.pe/pull/2) | Página de compra con Bootstrap 5 |
+| `tailwind` | [#3](https://github.com/naaria/move.pe/pull/3) | Testimonios y secciones del index con Tailwind CSS |
+| `feature/hu1-calculadora-energia` | [#4](https://github.com/naaria/move.pe/pull/4) | HU1: calculadora de gasto energético en reposo |
+| `feature/hu2-confirmacion-contacto` | [#5](https://github.com/naaria/move.pe/pull/5) | HU2: confirmación al enviar el formulario de contacto |
+| `docs/readme-proyecto` | [#6](https://github.com/naaria/move.pe/pull/6) | Este README |
+
+#### HU1: Calculadora de gasto energético en reposo
+
+Como persona que quiere cuidar su alimentación, quiero calcular cuánta energía gasto en reposo para tener un punto de partida antes de registrarme en MOVE.
+
+**Criterios de aceptación**
+- La sección "Calculadora" del index pide sexo, edad, peso y talla, y muestra el gasto en reposo estimado en kcal/día con la ecuación de Mifflin–St Jeor (`10·peso + 6,25·talla − 5·edad + 5` en hombres, `− 161` en mujeres).
+- Todos los campos son obligatorios y tienen rangos (edad 19–100, peso 30–300 kg, talla 120–230 cm). Fuera de rango, el navegador bloquea el cálculo con su mensaje nativo.
+- El resultado se redondea a 10 kcal y se presenta como "estimado", sin juicios.
+- Accesibilidad: `<label for>` en cada campo, `<fieldset>` + `<legend>` para el sexo, ayuda con `aria-describedby` y resultado anunciado con `role="status"`.
+- Los datos no se guardan ni se envían.
+
+#### HU2: Confirmación del formulario de contacto
+
+Como persona que escribe a MOVE, quiero ver una confirmación clara cuando envío el formulario para saber que mi mensaje llegó y a qué correo me responderán.
+
+**Criterios de aceptación**
+- La confirmación solo aparece si el formulario pasa la validación nativa (vacío, email inválido o teléfono inválido siguen bloqueando el envío).
+- El mensaje incluye nombre, motivo y correo; la página no se recarga y el formulario se limpia.
+- Accesibilidad: región `role="status"` + `aria-live="polite"`, y el mensaje recibe el foco.
+- Seguridad: el texto se arma con `textContent`, así el HTML escrito en un campo se muestra como texto.
+- Se aclara que es una demostración: no se envía a ningún servidor.
+
+#### Frameworks CSS
+
+- **Bootstrap 5.3 en `compra.html`**: grilla `row`/`col-lg-*`, `form-control`, `form-select`, `form-check`, `btn-check` para elegir el plan, `alert` y validación con `.was-validated` + `.invalid-feedback`.
+- **Tailwind CSS v4 en `index.html` y `testimonios.html`**: muro de testimonios (`grid`, `sm:grid-cols-2`, `lg:grid-cols-3`, `grid-flow-dense`, `col-span`, `row-span`), frase destacada, panel de testimonios del index, calculadora (HU1) y confirmación (HU2).
+
+### Decisiones técnicas clave
+
+1. **Un solo sistema de tokens para tres tecnologías.** Los colores, radios y sombras viven en `:root` (`css/styles.css`). Tailwind los lee directamente (`bg-(--color-accent)`, `rounded-(--radius)`) y Bootstrap a través de sus propias variables (`--bs-body-font-family`, `--bs-border-radius`, `--bs-btn-*`), que redefinimos en `.compra`. Resultado: las 5 páginas se ven como una sola marca y el modo oscuro funciona en todas cambiando solo los tokens (más `data-bs-theme` para Bootstrap).
+2. **Capas de cascada para que los frameworks convivan.** El reset `* { margin: 0; padding: 0 }` está en `@layer reset`. Una capa tiene menos prioridad que el CSS sin capa, así las utilidades de Tailwind (que viven en sus propias capas) pueden aplicar su padding y margin. Los márgenes que agrega Bootstrap Reboot se anulan solo en header, footer e intro con `:where(...)`.
+3. **Nombres de clase sin choques.** `.btn` y `.badge` existen en Bootstrap, así que las clases propias pasaron a `.btn-move` y `.plan-badge`.
+4. **Validación nativa primero.** Los formularios usan `required`, `type`, `pattern`, `min`/`max` y `minlength`. El JavaScript de las HU solo actúa cuando el navegador ya validó (el evento `submit` no se dispara con campos inválidos). En compra se usa la API nativa `checkValidity()` con el estilo de Bootstrap.
+5. **Ramas encadenadas.** Como `tailwind` y las HU modifican los mismos archivos que `bootstrap`, cada rama sale de la anterior y los PR se mergean en orden (#2 → #6). Así no hay conflictos.
+6. **Tailwind con el build para navegador.** Se carga desde CDN, sin instalar Node ni compilar, lo que permite publicar en GitHub Pages tal cual. En un proyecto en producción se usaría el CLI de Tailwind para generar un CSS estático.
+
 ## Laboratorio 01 — HTML5 semántico, accesibilidad y formularios
 
 - Estructura semántica: `header`, `nav`, `main`, `section`, `footer`.
@@ -75,6 +128,7 @@ Definidos en `:root` al inicio de `css/styles.css`. El modo oscuro solo redefine
 | `--color-focus` | `#6d28d9` | Contorno de foco para navegación con teclado |
 | `--color-error` | `#c2255c` | Borde de campos inválidos (`:user-invalid`) |
 | `--color-on-primary` | `#ffffff` | Texto sobre botones y fondos oscuros |
+| `--color-panel-dark` | `#171717` | Panel de testimonios del index (Tailwind) |
 | `--font-text` | `"Manrope", system-ui, sans-serif` | `body` |
 | `--font-size` | `16px` | Tamaño base del `body` |
 | `--font-size-title` | `2.5rem` | Precios de los planes y total del resumen de compra |
@@ -111,20 +165,20 @@ Validación 100 % nativa de HTML, sin JavaScript. Los campos inválidos se marca
 3. Formulario validado y README commiteados en la rama.
 4. `git push -u origin feature/form-validado` → Pull Request en GitHub → merge → `git pull` en `main` local.
 
-### Historias de usuario adicionales
+### Funcionalidades extra de labs anteriores
 
-**HU1 — Modo oscuro.** Como persona que revisa la app de noche, quiero cambiar a modo oscuro para no cansar la vista.
+**Modo oscuro.** Como persona que revisa la app de noche, quiero cambiar a modo oscuro para no cansar la vista.
 - El botón ◐ del header alterna entre modo claro y oscuro en todas las páginas.
 - La preferencia se recuerda al volver a entrar.
 - Si no elegí nada, se respeta la preferencia del sistema operativo.
 - El botón anuncia su estado con `aria-pressed`.
 
-**HU2 — Compra con plan preseleccionado.** Como persona interesada en un plan, quiero que la página de compra ya tenga elegido el plan que vi, para no repetir el paso.
+**Compra con plan preseleccionado.** Como persona interesada en un plan, quiero que la página de compra ya tenga elegido el plan que vi, para no repetir el paso.
 - Cada botón de `precios.html` abre `compra.html?plan=<plan>`.
 - El plan llega marcado y el resumen muestra su nombre, precio y beneficios.
 - Si cambio de plan en el formulario, el resumen se actualiza al instante.
 
-**HU3 — Consulta por WhatsApp según el plan.** Como persona con dudas sobre un plan, quiero escribir por WhatsApp con un mensaje ya redactado para no tener que explicarlo.
+**Consulta por WhatsApp según el plan.** Como persona con dudas sobre un plan, quiero escribir por WhatsApp con un mensaje ya redactado para no tener que explicarlo.
 - Cada plan tiene un enlace de WhatsApp con el mensaje "Hola, quiero el plan <plan> de MOVE".
 - El enlace del resumen de compra cambia según el plan elegido.
 - Los enlaces se abren en una pestaña nueva.
@@ -146,6 +200,8 @@ move.pe/
 ├── css/styles.css
 ├── js/theme.js
 ├── js/compra.js
+├── js/calculadora.js
+├── js/contacto.js
 ├── img/
 └── README.md
 ```
@@ -157,3 +213,4 @@ move.pe/
 - Iconos de redes: [Simple Icons](https://simpleicons.org/) (CC0).
 - Iconos de características y FAQ: [Lucide](https://lucide.dev/) (ISC).
 - Logo, isotipo y degradado: marca MOVE.
+- Frameworks: [Bootstrap 5.3](https://getbootstrap.com/) (MIT) y [Tailwind CSS v4](https://tailwindcss.com/) (MIT).
