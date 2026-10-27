@@ -1,25 +1,21 @@
-/* ===== NORMALIZACIÓN ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===== NORMALIZACIÓN =====
+   Va dentro de @layer reset: una capa tiene menos prioridad que el CSS sin capa,
+   así las utilidades de Tailwind (que viven en sus propias capas) pueden ganarle. */
+@layer reset {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
-/* Los frameworks (Bootstrap Reboot) agregan márgenes y sangrías por defecto:
-   los anulamos para que header, footer y secciones se vean igual en todas las páginas */
-p,
-h1,
-h2,
-h3,
-ul,
-ol,
-figure,
-blockquote {
+/* Bootstrap Reboot (compra.html) agrega márgenes y sangrías a p, h1, ul…
+   Los anulamos solo en las piezas compartidas para que se vean igual en todas las páginas. */
+:where(.site-header, footer, .page-intro) :is(p, h1, h2, h3, ul, ol) {
   margin: 0;
 }
 
-ul,
-ol {
+:where(.site-header, footer) :is(ul, ol) {
   padding: 0;
 }
 
@@ -43,6 +39,7 @@ ol {
   --color-on-dark: #f7f6f3;      /* texto claro sobre fondos oscuros */
   --color-on-dark-muted: #c9c9c9;
   --color-on-light-muted: #4a4a4a; /* texto secundario sobre fondos de marca */
+  --color-panel-dark: #171717;   /* panel de testimonios del index */
   --gradient-brand: linear-gradient(90deg, #e8590c, #7c3aed);
 
   /* Tipografía */
@@ -82,6 +79,7 @@ ol {
   --color-border: #3a3a3a;
   --color-focus: #c4b5fd;
   --color-error: #ff8fab;
+  --color-panel-dark: #262626;
   --gradient-brand: linear-gradient(90deg, #ff7a2e, #a78bfa);
   --logo-filter: invert(1);
   --header-bg: rgba(23, 23, 23, 0.85);
@@ -104,6 +102,7 @@ img {
 
 a {
   color: var(--color-link);
+  text-decoration: underline; /* explícito: el preflight de Tailwind lo quita */
 }
 
 h1,
@@ -489,66 +488,7 @@ nav a[aria-current="page"] {
   border-radius: var(--radius-sm);
 }
 
-/* ===== FRASE DESTACADA ===== */
-.statement {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: var(--space-xl) 20px;
-  text-align: center;
-}
-
-.statement p {
-  font-size: clamp(2rem, 6vw, 4.25rem);
-  font-weight: 300;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-}
-
-/* ===== TESTIMONIOS (móvil: columna) ===== */
-#testimonios {
-  width: calc(100% - 24px);
-  padding: 48px 24px;
-  border-radius: var(--radius-lg);
-  background: var(--color-primary);
-  color: var(--color-on-dark);
-}
-
-:root[data-theme="dark"] #testimonios {
-  background: var(--color-bg-soft);
-}
-
-#testimonios .eyebrow {
-  color: var(--color-accent-2);
-}
-
-.testimonios {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-}
-
-.testimonio {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-  flex-grow: 1;
-  padding: 28px;
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.testimonio blockquote {
-  font-size: 1.15rem;
-  line-height: 1.45;
-}
-
-.testimonio figcaption {
-  font-size: 0.85rem;
-  color: var(--color-on-dark-muted);
-}
+/* La frase destacada y los testimonios del index se maquetan con Tailwind (ver index.html) */
 
 /* ===== PREGUNTAS FRECUENTES ===== */
 #faq {
@@ -812,7 +752,6 @@ footer a {
     width: 48%;   /* 2 imágenes por fila (el ~4% restante absorbe el gap) */
   }
 
-  #testimonios,
   #contacto {
     width: calc(100% - 48px);
     padding: 56px 40px;
@@ -850,14 +789,6 @@ footer a {
 
   .galeria img {
     aspect-ratio: 3 / 4;
-  }
-
-  .testimonios {
-    flex-direction: row;       /* testimonios en fila */
-  }
-
-  .testimonio {
-    flex-basis: 280px;
   }
 
   #contacto {
@@ -1199,110 +1130,8 @@ footer a {
   }
 }
 
-/* ========================= TESTIMONIOS.HTML ========================= */
-.muro-grid {
-  display: grid;
-  gap: var(--space-md);
-}
-
-.testimonio-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 28px;
-  border-radius: var(--radius);
-  background: var(--color-bg-soft);
-}
-
-.testimonio-card blockquote {
-  font-size: 1.1rem;
-  line-height: 1.45;
-}
-
-.testimonio-card figcaption {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-.testimonio-card figcaption strong {
-  display: block;
-  font-size: 1rem;
-  color: var(--color-text);
-}
-
-.testimonio-card.destacado {
-  background: var(--color-accent-2);
-  color: var(--color-primary);
-}
-
-.testimonio-card.destacado blockquote {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.testimonio-card.alto {
-  background: var(--color-accent);
-  color: var(--color-primary);
-}
-
-.testimonio-card.destacado figcaption,
-.testimonio-card.alto figcaption,
-.testimonio-card.destacado figcaption strong,
-.testimonio-card.alto figcaption strong {
-  color: var(--color-primary);
-}
-
-.cta-band {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
-  width: calc(100% - 24px);
-  margin: var(--space-md) auto var(--space-xl);
-  text-align: center;
-  border-radius: var(--radius-lg);
-  background: var(--color-cream) url("../img/gradient-wide.webp") center / cover no-repeat;
-  color: var(--color-primary);
-}
-
-.cta-band h2 {
-  max-width: none;
-  margin: 0;
-}
-
-/* TABLET+ (≥640px): 2 columnas, el destacado ocupa toda la fila */
-@media (min-width: 640px) {
-  .muro-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-flow: dense;   /* rellena los huecos automáticamente */
-  }
-
-  .testimonio-card.destacado {
-    grid-column: 1 / -1;
-  }
-
-  .cta-band {
-    width: calc(100% - 48px);
-  }
-}
-
-/* DESKTOP+ (≥1024px): 3 columnas con posicionamiento manual */
-@media (min-width: 1024px) {
-  .muro-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .testimonio-card.destacado {
-    grid-column: span 2;
-  }
-
-  .testimonio-card.alto {
-    grid-row: span 2;
-  }
-}
+/* ========================= TESTIMONIOS.HTML =========================
+   El muro y el CTA se maquetan con utilidades de Tailwind (ver testimonios.html) */
 
 /* ========================= COMPRA.HTML (Bootstrap 5) ========================= */
 /* Bootstrap lee sus propias variables (--bs-*): aquí las conectamos con los tokens de MOVE */
