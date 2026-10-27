@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Tailwind CSS v4 (build para navegador). Sus utilidades leen los tokens de MOVE de styles.css -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
 </head>
 <body class="site-layout">
 
@@ -41,56 +43,59 @@
     </div>
 
     <section class="muro" aria-label="Opiniones de usuarios">
-      <div class="muro-grid">
-      <figure class="testimonio-card destacado">
-        <blockquote>
-          <p>"Llevaba años anotando comidas en tres apps distintas. Con MOVE veo en una sola pantalla lo que como, cuánto camino y cuánto levanto, y por fin entiendo cómo se conecta todo."</p>
-        </blockquote>
-        <figcaption><strong>Andrea, 32 años</strong> Entrena fuerza 4 veces por semana</figcaption>
-      </figure>
-      <figure class="testimonio-card">
-        <blockquote>
-          <p>"Por fin entiendo por qué mi peso sube y baja. MOVE me muestra tendencias en lugar de hacerme sentir mal por un día."</p>
-        </blockquote>
-        <figcaption><strong>Lucía, 29 años</strong> Entrena 3 veces por semana</figcaption>
-      </figure>
-      <figure class="testimonio-card">
-        <blockquote>
-          <p>"Registro mis series en el gimnasio sin señal y todo se sincroniza después. Ver mis récords me motiva."</p>
-        </blockquote>
-        <figcaption><strong>Diego, 34 años</strong> Fuerza y running</figcaption>
-      </figure>
-      <figure class="testimonio-card">
-        <blockquote>
-          <p>"Escaneo el código de barras y listo. Planificar mis comidas de la semana me toma cinco minutos."</p>
-        </blockquote>
-        <figcaption><strong>Valeria, 41 años</strong> Cuida su alimentación</figcaption>
-      </figure>
-      <figure class="testimonio-card alto">
-        <blockquote>
-          <p>"Lo que más valoro es el tono. Nada de rachas ni puntajes: si un día como más, MOVE simplemente lo registra y me muestra el contexto de la semana. Eso me quitó mucha presión."</p>
-        </blockquote>
-        <figcaption><strong>Renzo, 27 años</strong> Corre 10K los domingos</figcaption>
-      </figure>
-      <figure class="testimonio-card">
-        <blockquote>
-          <p>"Uso el plan Equipos con mis alumnas. Veo su progreso sin pedirles capturas por WhatsApp."</p>
-        </blockquote>
-        <figcaption><strong>Carla, 38 años</strong> Coach de fuerza</figcaption>
-      </figure>
-      <figure class="testimonio-card">
-        <blockquote>
-          <p>"Mis caminatas diarias ahora cuentan. Ver los pasos junto a mis comidas me ayudó a entender mi energía."</p>
-        </blockquote>
-        <figcaption><strong>Jorge, 55 años</strong> Camina todos los días</figcaption>
-      </figure>
+      <!-- Grid con Tailwind: 1 → 2 (sm, 640px) → 3 columnas (lg, 1024px) y grid-flow-dense -->
+      <div class="grid gap-4 sm:grid-flow-dense sm:grid-cols-2 lg:grid-cols-3">
+        <figure class="flex flex-col justify-between gap-6 rounded-(--radius) p-7 bg-(--color-accent-2) text-(--color-primary) sm:col-span-full lg:col-span-2">
+          <blockquote class="text-[clamp(1.4rem,3vw,2rem)] font-light leading-tight tracking-tight">
+            <p>"Llevaba años anotando comidas en tres apps distintas. Con MOVE veo en una sola pantalla lo que como, cuánto camino y cuánto levanto, y por fin entiendo cómo se conecta todo."</p>
+          </blockquote>
+          <figcaption class="text-sm"><strong class="block text-base">Andrea, 32 años</strong> Entrena fuerza 4 veces por semana</figcaption>
+        </figure>
+        <figure class="flex flex-col justify-between gap-6 rounded-(--radius) p-7 bg-(--color-bg-soft)">
+          <blockquote class="text-lg leading-snug">
+            <p>"Por fin entiendo por qué mi peso sube y baja. MOVE me muestra tendencias en lugar de hacerme sentir mal por un día."</p>
+          </blockquote>
+          <figcaption class="text-sm text-(--color-text-muted)"><strong class="block text-base text-(--color-text)">Lucía, 29 años</strong> Entrena 3 veces por semana</figcaption>
+        </figure>
+        <figure class="flex flex-col justify-between gap-6 rounded-(--radius) p-7 bg-(--color-bg-soft)">
+          <blockquote class="text-lg leading-snug">
+            <p>"Registro mis series en el gimnasio sin señal y todo se sincroniza después. Ver mis récords me motiva."</p>
+          </blockquote>
+          <figcaption class="text-sm text-(--color-text-muted)"><strong class="block text-base text-(--color-text)">Diego, 34 años</strong> Fuerza y running</figcaption>
+        </figure>
+        <figure class="flex flex-col justify-between gap-6 rounded-(--radius) p-7 bg-(--color-bg-soft)">
+          <blockquote class="text-lg leading-snug">
+            <p>"Escaneo el código de barras y listo. Planificar mis comidas de la semana me toma cinco minutos."</p>
+          </blockquote>
+          <figcaption class="text-sm text-(--color-text-muted)"><strong class="block text-base text-(--color-text)">Valeria, 41 años</strong> Cuida su alimentación</figcaption>
+        </figure>
+        <figure class="flex flex-col justify-between gap-6 rounded-(--radius) p-7 bg-(--color-accent) text-(--color-primary) lg:row-span-2">
+          <blockquote class="text-lg leading-snug">
+            <p>"Lo que más valoro es el tono. Nada de rachas ni puntajes: si un día como más, MOVE simplemente lo registra y me muestra el contexto de la semana. Eso me quitó mucha presión."</p>
+          </blockquote>
+          <figcaption class="text-sm"><strong class="block text-base">Renzo, 27 años</strong> Corre 10K los domingos</figcaption>
+        </figure>
+        <figure class="flex flex-col justify-between gap-6 rounded-(--radius) p-7 bg-(--color-bg-soft)">
+          <blockquote class="text-lg leading-snug">
+            <p>"Uso el plan Equipos con mis alumnas. Veo su progreso sin pedirles capturas por WhatsApp."</p>
+          </blockquote>
+          <figcaption class="text-sm text-(--color-text-muted)"><strong class="block text-base text-(--color-text)">Carla, 38 años</strong> Coach de fuerza</figcaption>
+        </figure>
+        <figure class="flex flex-col justify-between gap-6 rounded-(--radius) p-7 bg-(--color-bg-soft)">
+          <blockquote class="text-lg leading-snug">
+            <p>"Mis caminatas diarias ahora cuentan. Ver los pasos junto a mis comidas me ayudó a entender mi energía."</p>
+          </blockquote>
+          <figcaption class="text-sm text-(--color-text-muted)"><strong class="block text-base text-(--color-text)">Jorge, 55 años</strong> Camina todos los días</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="cta-band" aria-labelledby="cta-title">
-      <h2 id="cta-title">¿Listo para empezar?</h2>
-      <p>Prueba MOVE gratis y cambia de plan cuando quieras.</p>
-      <a href="precios.html" class="btn-move">Ver planes</a>
+    <section aria-labelledby="cta-title">
+      <div class="flex flex-col items-center gap-4 rounded-(--radius-lg) bg-(--color-cream) bg-[url(img/gradient-wide.webp)] bg-cover bg-center px-6 py-14 text-center text-(--color-primary)">
+        <h2 id="cta-title" class="mb-0!">¿Listo para empezar?</h2>
+        <p>Prueba MOVE gratis y cambia de plan cuando quieras.</p>
+        <a href="precios.html" class="btn-move">Ver planes</a>
+      </div>
     </section>
   </main>
 

@@ -18,6 +18,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Tailwind CSS v4 (build para navegador). Sus utilidades leen los tokens de MOVE de styles.css -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.3"></script>
 </head>
 <body class="site-layout">
 
@@ -115,32 +117,34 @@
       </div>
     </section>
 
-    <div class="statement">
-      <p>Registra, entiende y avanza. <span class="gradient-text">Sin culpa.</span></p>
+    <div class="mx-auto max-w-5xl px-5 py-16 text-center">
+      <p class="text-[clamp(2rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.04em]">Registra, entiende y avanza. <span class="gradient-text">Sin culpa.</span></p>
     </div>
 
     <section id="testimonios" aria-labelledby="testimonios-title">
-      <p class="eyebrow">03 · Testimonios</p>
-      <h2 id="testimonios-title">Lo que dicen quienes ya se mueven</h2>
-      <div class="testimonios">
-        <figure class="testimonio">
-          <blockquote>
-            <p>"Por fin entiendo por qué mi peso sube y baja. MOVE me muestra tendencias en lugar de hacerme sentir mal por un día."</p>
-          </blockquote>
-          <figcaption>Lucía, 29 años · entrena 3 veces por semana</figcaption>
-        </figure>
-        <figure class="testimonio">
-          <blockquote>
-            <p>"Registro mis series en el gimnasio sin señal y todo se sincroniza después. Ver mis récords me motiva."</p>
-          </blockquote>
-          <figcaption>Diego, 34 años · fuerza y running</figcaption>
-        </figure>
-        <figure class="testimonio">
-          <blockquote>
-            <p>"Escaneo el código de barras y listo. Planificar mis comidas de la semana me toma cinco minutos."</p>
-          </blockquote>
-          <figcaption>Valeria, 41 años · cuida su alimentación</figcaption>
-        </figure>
+      <div class="rounded-(--radius-lg) bg-(--color-panel-dark) px-6 py-12 text-(--color-on-dark) sm:px-10 sm:py-14">
+        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-(--color-accent-2)">03 · Testimonios</p>
+        <h2 id="testimonios-title">Lo que dicen quienes ya se mueven</h2>
+        <div class="flex flex-col gap-4 lg:flex-row">
+          <figure class="flex flex-1 flex-col justify-between gap-6 rounded-(--radius) border border-white/10 bg-white/5 p-7">
+            <blockquote class="text-lg leading-snug">
+              <p>"Por fin entiendo por qué mi peso sube y baja. MOVE me muestra tendencias en lugar de hacerme sentir mal por un día."</p>
+            </blockquote>
+            <figcaption class="text-sm text-(--color-on-dark-muted)">Lucía, 29 años · entrena 3 veces por semana</figcaption>
+          </figure>
+          <figure class="flex flex-1 flex-col justify-between gap-6 rounded-(--radius) border border-white/10 bg-white/5 p-7">
+            <blockquote class="text-lg leading-snug">
+              <p>"Registro mis series en el gimnasio sin señal y todo se sincroniza después. Ver mis récords me motiva."</p>
+            </blockquote>
+            <figcaption class="text-sm text-(--color-on-dark-muted)">Diego, 34 años · fuerza y running</figcaption>
+          </figure>
+          <figure class="flex flex-1 flex-col justify-between gap-6 rounded-(--radius) border border-white/10 bg-white/5 p-7">
+            <blockquote class="text-lg leading-snug">
+              <p>"Escaneo el código de barras y listo. Planificar mis comidas de la semana me toma cinco minutos."</p>
+            </blockquote>
+            <figcaption class="text-sm text-(--color-on-dark-muted)">Valeria, 41 años · cuida su alimentación</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
