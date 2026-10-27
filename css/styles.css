@@ -5,6 +5,24 @@
   box-sizing: border-box;
 }
 
+/* Los frameworks (Bootstrap Reboot) agregan márgenes y sangrías por defecto:
+   los anulamos para que header, footer y secciones se vean igual en todas las páginas */
+p,
+h1,
+h2,
+h3,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
 /* ===== TOKENS (CSS Variables) — paleta MOVE ===== */
 :root {
   /* Colores */
@@ -237,7 +255,7 @@ nav a[aria-current="page"] {
 }
 
 /* ===== BOTONES (microinteracciones) ===== */
-.btn {
+.btn-move {
   display: inline-block;
   font: inherit;
   font-weight: 600;
@@ -251,16 +269,16 @@ nav a[aria-current="page"] {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn:hover {
+.btn-move:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
-.btn:active {
+.btn-move:active {
   transform: translateY(0);
 }
 
-:root[data-theme="dark"] .btn {
+:root[data-theme="dark"] .btn-move {
   background: var(--color-on-dark);
   color: var(--color-primary);
 }
@@ -963,7 +981,7 @@ footer a {
   width: 100%;
 }
 
-.plan-actions .btn {
+.plan-actions .btn-move {
   width: 100%;
   text-align: center;
 }
@@ -986,12 +1004,12 @@ footer a {
   color: var(--color-on-light-muted);
 }
 
-.planes .plan-pro .btn {
+.planes .plan-pro .btn-move {
   background: var(--color-primary);
   color: var(--color-on-primary);
 }
 
-.badge {
+.plan-badge {
   position: absolute;
   top: -14px;
   right: 20px;
@@ -1286,164 +1304,63 @@ footer a {
   }
 }
 
-/* ========================= COMPRA.HTML ========================= */
-/* Móvil: intro → resumen → formulario */
+/* ========================= COMPRA.HTML (Bootstrap 5) ========================= */
+/* Bootstrap lee sus propias variables (--bs-*): aquí las conectamos con los tokens de MOVE */
 .compra {
-  display: grid;
-  grid-template-areas:
-    "intro"
-    "resumen"
-    "form";
-  align-content: start;
-  gap: 24px;
-  width: 100%;
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 20px var(--space-xl);
+  --bs-body-font-family: var(--font-text);
+  --bs-body-bg: var(--color-surface);
+  --bs-body-color: var(--color-text);
+  --bs-border-color: var(--color-border);
+  --bs-border-radius: var(--radius-sm);
+  --bs-border-radius-lg: var(--radius-sm);
+  --bs-link-color-rgb: 184, 73, 12;
+  --bs-focus-ring-color: rgba(255, 122, 46, 0.3);
 }
 
-.compra-intro {
-  grid-area: intro;
+.compra .form-control,
+.compra .form-select {
+  background-color: var(--color-bg-soft);
 }
 
-.compra-form {
-  grid-area: form;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  padding: 28px 24px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background: var(--color-surface);
-}
-
-.resumen {
-  grid-area: resumen;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 28px;
-  border-radius: var(--radius);
-  background: var(--color-primary);
-  color: var(--color-on-dark);
-}
-
-:root[data-theme="dark"] .resumen {
-  background: var(--color-bg-soft);
-}
-
-.compra-form h2,
-.resumen h2 {
-  max-width: none;
-  margin-bottom: var(--space-sm);
-  font-size: 1.75rem;
-}
-
-.compra-form fieldset {
-  display: grid;
-  gap: var(--space-sm);
-  border: none;
-}
-
-.compra-form legend {
-  margin-bottom: var(--space-sm);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.opcion-plan {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-bg-soft);
-  cursor: pointer;
-}
-
-.opcion-plan:has(input:checked) {
+.compra .form-control:focus,
+.compra .form-select:focus {
   border-color: var(--color-accent);
-  background: var(--color-cream);
-  color: var(--color-primary);
+  box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
 }
 
-.compra-form input[type="radio"],
-.compra-form input[type="checkbox"] {
-  accent-color: var(--color-accent);
+.compra .form-check-input:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
-.compra-form label {
-  margin-top: var(--space-sm);
-  font-weight: 600;
-  font-size: 0.9rem;
+/* Botones de plan (btn-check): tarjetas seleccionables con colores de marca */
+.compra .btn-check + .btn {
+  --bs-btn-color: var(--color-text);
+  --bs-btn-bg: var(--color-bg-soft);
+  --bs-btn-border-color: var(--color-border);
+  --bs-btn-hover-color: var(--color-text);
+  --bs-btn-hover-bg: var(--color-bg-soft);
+  --bs-btn-hover-border-color: var(--color-accent);
+  --bs-btn-active-color: var(--color-primary);
+  --bs-btn-active-bg: var(--color-cream);
+  --bs-btn-active-border-color: var(--color-accent);
 }
 
-.compra-form input[type="text"],
-.compra-form input[type="email"],
-.compra-form select {
-  padding: 12px 14px;
-  font: inherit;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-bg-soft);
-  color: var(--color-text);
+:root[data-theme="dark"] .compra .btn-dark {
+  --bs-btn-bg: var(--color-on-dark);
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-border-color: var(--color-on-dark);
+  --bs-btn-hover-bg: var(--color-accent);
+  --bs-btn-hover-color: var(--color-primary);
+  --bs-btn-hover-border-color: var(--color-accent);
 }
 
-.compra-form .check {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  font-weight: 400;
+.compra .text-bg-warning {
+  background-color: var(--color-accent) !important;
 }
 
-.compra-form button {
-  margin-top: var(--space-md);
-}
-
-.resumen-precio #resumen-precio {
-  font-size: var(--font-size-title);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-}
-
-.resumen ul {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-left: 18px;
-  color: var(--color-on-dark-muted);
-}
-
-.resumen-nota {
-  padding-top: 12px;
-  font-size: 0.8rem;
-  color: var(--color-on-dark-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.resumen .plan-alt {
-  color: var(--color-accent-2);
-}
-
-/* TABLET+ (≥640px): los planes del formulario en 2 columnas */
-@media (min-width: 640px) {
-  .compra-form fieldset {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* DESKTOP+ (≥1024px): formulario a la izquierda, resumen a la derecha */
-@media (min-width: 1024px) {
-  .compra {
-    grid-template-areas:
-      "intro intro"
-      "form  resumen";
-    grid-template-columns: 1fr 380px;
-    align-items: start;
-  }
-
+/* En escritorio el resumen acompaña el scroll, debajo del header fijo */
+@media (min-width: 992px) {
   .resumen {
     position: sticky;
     top: 96px;

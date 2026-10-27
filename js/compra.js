@@ -54,3 +54,24 @@ if (planes[desdeUrl]) {
 radios.forEach((radio) => {
   radio.addEventListener('change', () => mostrarPlan(radio.value));
 });
+
+// Validación con el estilo de Bootstrap: usa la API nativa (checkValidity) y
+// la clase .was-validated para mostrar los mensajes .invalid-feedback.
+const formulario = document.querySelector('.compra-form');
+const aviso = document.getElementById('compra-ok');
+
+formulario.addEventListener('submit', (evento) => {
+  evento.preventDefault();
+  formulario.classList.add('was-validated');
+
+  if (!formulario.checkValidity()) {
+    formulario.querySelector(':invalid').focus();
+    return;
+  }
+
+  const plan = planes[formulario.elements.plan.value];
+  const nombre = formulario.elements.nombre.value.trim();
+  aviso.textContent = `¡Listo, ${nombre}! Reservamos tu plan ${plan.nombre}. Te enviaremos el enlace de pago a tu correo. (Demostración: no se realiza ningún cobro.)`;
+  aviso.classList.remove('d-none');
+  aviso.focus();
+});
