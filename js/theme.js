@@ -4,6 +4,7 @@ const root = document.documentElement;
 
 function applyTheme(theme) {
   root.dataset.theme = theme;
+  root.dataset.bsTheme = theme; // Bootstrap (compra.html) usa data-bs-theme
   const isDark = theme === 'dark';
   toggle.setAttribute('aria-pressed', String(isDark));
 }
