@@ -117,13 +117,59 @@
       </div>
     </section>
 
+    <section id="calculadora" aria-labelledby="calculadora-title">
+      <div class="flex flex-col gap-8 rounded-(--radius-lg) bg-(--color-bg-soft) p-6 sm:p-10 lg:flex-row lg:gap-14">
+        <div class="lg:basis-5/12">
+          <p class="eyebrow">03 · Calculadora</p>
+          <h2 id="calculadora-title">¿Cuánta energía gastas en reposo?</h2>
+          <p class="text-lg text-(--color-text-muted)">Calcula tu gasto energético en reposo con la ecuación de Mifflin–St Jeor, la misma que MOVE usa como punto de partida. Después, la app ajusta esa estimación con tus datos reales.</p>
+        </div>
+
+        <form id="calc-form" class="flex flex-1 flex-col gap-5" action="#" aria-labelledby="calculadora-title">
+          <fieldset>
+            <legend class="mb-2 text-sm font-semibold">Sexo</legend>
+            <div class="flex gap-3">
+              <label class="flex flex-1 cursor-pointer items-center gap-2 rounded-(--radius-sm) border border-(--color-border) bg-(--color-surface) px-4 py-3 font-semibold has-checked:border-(--color-accent) has-checked:bg-(--color-cream) has-checked:text-(--color-primary)">
+                <input type="radio" name="sexo" value="mujer" class="size-4 accent-(--color-accent)" required>
+                Mujer
+              </label>
+              <label class="flex flex-1 cursor-pointer items-center gap-2 rounded-(--radius-sm) border border-(--color-border) bg-(--color-surface) px-4 py-3 font-semibold has-checked:border-(--color-accent) has-checked:bg-(--color-cream) has-checked:text-(--color-primary)">
+                <input type="radio" name="sexo" value="hombre" class="size-4 accent-(--color-accent)">
+                Hombre
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="grid gap-4 sm:grid-cols-3">
+            <div class="flex flex-col gap-2">
+              <label for="calc-edad" class="text-sm font-semibold">Edad (años)</label>
+              <input type="number" id="calc-edad" name="edad" min="19" max="100" step="1" inputmode="numeric" aria-describedby="calc-edad-ayuda" required class="w-full rounded-(--radius-sm) border border-(--color-border) bg-(--color-surface) px-4 py-3 text-(--color-text) user-invalid:border-(--color-error)">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="calc-peso" class="text-sm font-semibold">Peso (kg)</label>
+              <input type="number" id="calc-peso" name="peso" min="30" max="300" step="0.1" inputmode="decimal" required class="w-full rounded-(--radius-sm) border border-(--color-border) bg-(--color-surface) px-4 py-3 text-(--color-text) user-invalid:border-(--color-error)">
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="calc-talla" class="text-sm font-semibold">Talla (cm)</label>
+              <input type="number" id="calc-talla" name="talla" min="120" max="230" step="1" inputmode="numeric" required class="w-full rounded-(--radius-sm) border border-(--color-border) bg-(--color-surface) px-4 py-3 text-(--color-text) user-invalid:border-(--color-error)">
+            </div>
+          </div>
+          <p id="calc-edad-ayuda" class="text-sm text-(--color-text-muted)">La ecuación es para personas de 19 años o más. No guardamos ni enviamos tus datos.</p>
+
+          <button type="submit" class="btn-move self-start">Calcular</button>
+
+          <div id="calc-resultado" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
     <div class="mx-auto max-w-5xl px-5 py-16 text-center">
       <p class="text-[clamp(2rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.04em]">Registra, entiende y avanza. <span class="gradient-text">Sin culpa.</span></p>
     </div>
 
     <section id="testimonios" aria-labelledby="testimonios-title">
       <div class="rounded-(--radius-lg) bg-(--color-panel-dark) px-6 py-12 text-(--color-on-dark) sm:px-10 sm:py-14">
-        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-(--color-accent-2)">03 · Testimonios</p>
+        <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-(--color-accent-2)">04 · Testimonios</p>
         <h2 id="testimonios-title">Lo que dicen quienes ya se mueven</h2>
         <div class="flex flex-col gap-4 lg:flex-row">
           <figure class="flex flex-1 flex-col justify-between gap-6 rounded-(--radius) border border-white/10 bg-white/5 p-7">
@@ -247,5 +293,6 @@
   </footer>
 
   <script src="js/theme.js"></script>
+  <script src="js/calculadora.js"></script>
 </body>
 </html>
